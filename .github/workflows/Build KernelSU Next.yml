@@ -239,7 +239,7 @@ jobs:
           echo "🔄 同步代码库(使用$(nproc --all)线程)..."
           repo sync -c -j$(nproc --all) --no-tags --no-clone-bundle --force-sync
 
-          echo "Kernel version:-${{ github.event.inputs.ANDROID_VERSION }}-oki-xiaoxiaow"
+          echo "Kernel version:-${{ github.event.inputs.ANDROID_VERSION }}-11-o-g1b63040d0a34"
           rm kernel_platform/common/android/abi_gki_protected_exports_* || echo "No protected exports!"
           rm kernel_platform/msm-kernel/android/abi_gki_protected_exports_* || echo "No protected exports!"
           sed -i 's/ -dirty//g' kernel_platform/common/scripts/setlocalversion
@@ -248,9 +248,9 @@ jobs:
           sed -i '$i res=$(echo "$res" | sed '\''s/-dirty//g'\'')' kernel_platform/common/scripts/setlocalversion
           sed -i '$i res=$(echo "$res" | sed '\''s/-dirty//g'\'')' kernel_platform/msm-kernel/scripts/setlocalversion
           sed -i '$i res=$(echo "$res" | sed '\''s/-dirty//g'\'')' kernel_platform/external/dtc/scripts/setlocalversion
-          sed -i '$s|echo "\$res"|echo "-${{ github.event.inputs.ANDROID_VERSION }}-oki-xiaoxiaow"|' kernel_platform/common/scripts/setlocalversion            
-          sed -i '$s|echo "\$res"|echo "-${{ github.event.inputs.ANDROID_VERSION }}-oki-xiaoxiaow"|' kernel_platform/msm-kernel/scripts/setlocalversion
-          sed -i '$s|echo "\$res"|echo "-${{ github.event.inputs.ANDROID_VERSION }}-oki-xiaoxiaow"|' kernel_platform/external/dtc/scripts/setlocalversion
+          sed -i '$s|echo "\$res"|echo "-${{ github.event.inputs.ANDROID_VERSION }}-11-o-g1b63040d0a34"|' kernel_platform/common/scripts/setlocalversion            
+          sed -i '$s|echo "\$res"|echo "-${{ github.event.inputs.ANDROID_VERSION }}-11-o-g1b63040d0a34"|' kernel_platform/msm-kernel/scripts/setlocalversion
+          sed -i '$s|echo "\$res"|echo "-${{ github.event.inputs.ANDROID_VERSION }}-11-o-g1b63040d0a34"|' kernel_platform/external/dtc/scripts/setlocalversion
 
           echo "✅ 内核配置完成"
 
@@ -424,7 +424,7 @@ jobs:
         run: |
           echo "🏗️ 开始内核编译..."
           if [ "${{ github.event.inputs.KERNEL_VERSION }}" == "6.1" ]; then
-            export KBUILD_BUILD_TIMESTAMP="Wed Aug  6 13:29:27 UTC 2025"
+            export KBUILD_BUILD_TIMESTAMP="Tue Sep  2 10:46:00 UTC 2025"
             export KBUILD_BUILD_VERSION=1
             export PATH="$GITHUB_WORKSPACE/kernel_workspace/kernel_platform/prebuilts/clang/host/linux-x86/clang-r487747c/bin:$PATH"
             export PATH="/usr/lib/ccache:$PATH"
